@@ -8,10 +8,11 @@ public class PlayerController : MonoBehaviour
     public bool clear;
     public float moveSpeed = 5f;
     public float jumpForce = 5f;
-    public GameObject changePlatform;
     public CameraManager cameraManager;
+    public Color groundColor;
     private GameManager gameManager;
     private Rigidbody2D rb;
+    private SpriteRenderer sr;
     private bool isOnGround = true;
     private SpawnManager spawnManager;
     
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -43,6 +45,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.X) && !gameOver && !clear)
         {
             ChangeToPlatform();
+            spawnManager.SpawnPlayer();
         }
 
     }
@@ -75,9 +78,9 @@ public class PlayerController : MonoBehaviour
 
     private void ChangeToPlatform()
     {
-        // player 자리에 platform prefab 소환 후, player 오브젝트 제거, 그리고 player 소환
-        Instantiate(changePlatform, transform.position, changePlatform.transform.rotation);
-        Destroy(gameObject);
-        spawnManager.SpawnPlayer();
+        gameObject.tag = "Ground";
+        sr.color = groundColor;
+        Destroy(rb);
+        Destroy(this);
     }
 }
