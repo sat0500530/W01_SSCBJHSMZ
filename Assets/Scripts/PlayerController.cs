@@ -48,6 +48,16 @@ public class PlayerController : MonoBehaviour
             spawnManager.SpawnPlayer();
         }
 
+        if (Input.GetKeyDown(KeyCode.Z) && !gameOver && !clear)
+        {
+            transform.Rotate(Vector3.forward * 90);
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.C) && !gameOver && !clear)
+        {
+            transform.Rotate(Vector3.forward * -90);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -78,8 +88,21 @@ public class PlayerController : MonoBehaviour
 
     private void ChangeToPlatform()
     {
-        gameObject.tag = "Ground";
-        sr.color = groundColor;
+        if (transform.childCount == 0)
+        {
+            gameObject.tag = "Ground";
+            sr.color = groundColor;
+        }
+        else
+        {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                var block = transform.GetChild(i);
+                block.tag = "Ground";
+                block.gameObject.GetComponent<SpriteRenderer>().color = groundColor;
+            }
+        }
+        
         Destroy(rb);
         Destroy(this);
     }
