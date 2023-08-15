@@ -12,8 +12,24 @@ public class PlayerController : MonoBehaviour
     public Color groundColor;
     private GameManager gameManager;
     private Rigidbody2D rb;
-    private SpriteRenderer sr;
-    private bool isOnGround = true;
+
+    float previousVelocityY;
+
+    private bool isOnGround
+    {
+        get
+        {
+            return _isOnGround;
+        }
+        set
+        {
+            Debug.Log("isOnGround : " + value);
+            _isOnGround = value;
+        }
+    }
+
+    bool _isOnGround;
+    
     private SpawnManager spawnManager;
     
 
@@ -23,7 +39,6 @@ public class PlayerController : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
         rb = GetComponent<Rigidbody2D>();
-        sr = GetComponent<SpriteRenderer>();
 
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -34,10 +49,6 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Mathf.Abs(rb.velocity.y) < 0.0000001f)
-        {
-            isOnGround = true;
-        }
     }
 
     private void Update()
@@ -49,6 +60,12 @@ public class PlayerController : MonoBehaviour
 
         Vector2 movement = new Vector2(moveX * moveSpeed, rb.velocity.y);
         rb.velocity = movement;
+
+        Debug.Log("y = " + rb.velocity.y);
+        if (!isOnGround && Mathf.Abs(rb.velocity.y) < 0.0001f && previousVelocityY < 0)
+        {
+            isOnGround = true;
+        }
 
         if (Input.GetKey(KeyCode.Space) && isOnGround && !gameOver && !clear)
         {
@@ -72,6 +89,8 @@ public class PlayerController : MonoBehaviour
         {
             transform.Rotate(Vector3.forward * -90);
         }
+
+        previousVelocityY = rb.velocity.y;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -94,8 +113,8 @@ public class PlayerController : MonoBehaviour
                 transform.GetChild(i).GetComponent<SpriteRenderer>().color = groundColor;
             }
         }
+        gameObject.AddComponent<GeneratedPlatform>();
 
-        rb.mass *= 1000000;
         Destroy(this);
     }
 

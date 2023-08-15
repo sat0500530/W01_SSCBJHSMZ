@@ -310,7 +310,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: 668d5a21ad4f60044b7ee5e14031abb6, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &-6817184812102765619
 MonoBehaviour:
