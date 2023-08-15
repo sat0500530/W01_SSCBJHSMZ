@@ -104,8 +104,8 @@ public class PlayerController : MonoBehaviour
                 transform.GetChild(i).GetComponent<SpriteRenderer>().color = groundColor;
             }
         }
+        gameObject.AddComponent<GeneratedPlatform>();
 
-        rb.mass *= 1000000;
         Destroy(this);
     }
 }
