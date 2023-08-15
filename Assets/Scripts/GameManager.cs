@@ -7,79 +7,131 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public float TimeLeft;
-    public bool TimerOn = false;
+    public bool isTimeLimit; // true : time limit, false : block limit
+    public float timeLimit;
+    public int blockLimit;
 
-    public SpawnManager spawnManager;
-    public GameObject titleScreen;
-    public Button restartButton;
     public bool isGameActive;
-    public TextMeshProUGUI gameOverText;
-    public TextMeshProUGUI clearText;
-    public TextMeshProUGUI TimerText;
+    public SpawnManager spawnManager;
+
+    public GameObject stageStartUI;
+    public GameObject onStageUI;
+    public GameObject stageClearUI;
+    public GameObject stageOverUI;
+
+    public TextMeshProUGUI stageNameText;
+    public TextMeshProUGUI stageGoalText;
+    public TextMeshProUGUI limitText;
+    public TextMeshProUGUI stageClearText;
+    public TextMeshProUGUI stageOverText;
+
+    string stageName;
 
     void Start()
     {
+        stageName = SceneManager.GetActiveScene().name;
 
+        stageNameText.text = stageName;
+        stageGoalText.text = isTimeLimit ? $"Time Limit : {timeLimit} seconds" : $"Block Limit : {blockLimit}";
     }
-
-    public void StartGame()
-    {
-        TimerOn = true;
-        spawnManager.SpawnPlayer();
-        titleScreen.gameObject.SetActive(false);
-        isGameActive = true;
-    }
-
 
     void Update()
     {
-        //타이머 시작
-        if (TimerOn)
+        if (!isTimeLimit) return;
+
+        if (isTimeLimit)
         {
-            if (TimeLeft > 0)
+            if (timeLimit > 0)
             {
-                TimeLeft -= Time.deltaTime;
-                updateTimer(TimeLeft);
+                timeLimit -= Time.deltaTime;
+                UpdateLimitText();
             }
             else
             {
-                TimeLeft = 0;
-                TimerOn = false;
-                restartButton.gameObject.SetActive(true);
-                isGameActive = false;
-                gameOverText.gameObject.SetActive(true);
-
+                timeLimit = 0;
+                StageOver();
             }
         }
     }
-    public void RestartGame()
+    public void StartStage()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        stageStartUI.SetActive(false);
+        onStageUI.SetActive(true);
+        isGameActive = true;
+        TrySpawnPlayer();
     }
-
-    public void GameOver()
+    public void StageClear()
     {
-        TimerOn = false;
-        restartButton.gameObject.SetActive(true);
+        if (!isGameActive) return;
+
+        stageClearText.text = $"{stageName} Clear!";
+
         isGameActive = false;
-        gameOverText.gameObject.SetActive(true);
+        onStageUI.SetActive(false);
+        stageClearUI.SetActive(true);
+
     }
-    public void Clear()
+    public void StageOver()
     {
-        TimerOn = false;
-        restartButton.gameObject.SetActive(true);
+        stageOverText.text = isTimeLimit ? "Time Over..." : "Out of Blocks...";
+
         isGameActive = false;
-        clearText.gameObject.SetActive(true);
+        onStageUI.SetActive(false);
+        stageOverUI.SetActive(true);
     }
-    void updateTimer(float currentTime)
+
+    public void RestartStage()
     {
-        currentTime += 1;
-
-        float minutes = Mathf.FloorToInt(currentTime / 60);
-        float seconds = Mathf.FloorToInt(currentTime % 60);
-
-        TimerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+    public void NextStage()
+    {
+        int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        if (nextIndex == SceneManager.sceneCountInBuildSettings)
+        {
+            nextIndex = 0;
+        }
+        SceneManager.LoadScene(nextIndex);
+    }
+
+    public bool TrySpawnPlayer()
+    {
+        if (isTimeLimit)
+        {
+            spawnManager.SpawnPlayer();
+            return true;
+        }
+
+        if (blockLimit > 0)
+        {
+            blockLimit--;
+            UpdateLimitText();
+            spawnManager.SpawnPlayer();
+            return true;
+        }
+        else
+        {
+            StageOver();
+            return false;
+        }
+    }
+    void UpdateLimitText()
+    { 
+        if (isTimeLimit)
+        {
+            float currentTime = timeLimit;
+
+            float minutes = Mathf.FloorToInt(currentTime / 60);
+            float seconds = Mathf.FloorToInt(currentTime % 60);
+
+            limitText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        }
+        else
+        {
+            string plural = (blockLimit > 1 ? "s" : string.Empty);
+            limitText.text = $"{blockLimit} block{plural} left";
+        }
+    }
+    
 
 }

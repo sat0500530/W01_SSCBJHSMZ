@@ -9,11 +9,6 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] tetrisPrefabs;
     public Transform spawnPoint;
 
-    void Start()
-    {
-        
-    }
-
     public void SpawnPlayer()
     {
         // 랜덤 도형 선택

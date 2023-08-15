@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.X) && !gameOver && !clear)
         {
             ChangeToPlatform();
-            spawnManager.SpawnPlayer();
+            gameManager.TrySpawnPlayer();
         }
 
         if (Input.GetKeyDown(KeyCode.Z) && !gameOver && !clear)
@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
             // ¿ë¾Ï¿¡ ´êÀ» ½Ã °ÔÀÓ ¿À¹ö
             Debug.Log("Game Over");
             gameOver = true;
-            gameManager.GameOver();
+            gameManager.StageOver();
             Destroy(gameObject);
 
         }
@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
         {
             // °ñÀÎ µµÂø
             clear = true;
-            gameManager.Clear();
+            gameManager.StageClear();
         }
     }
 

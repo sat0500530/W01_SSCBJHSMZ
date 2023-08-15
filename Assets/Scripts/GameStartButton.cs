@@ -20,6 +20,6 @@ public class GameStartButton : MonoBehaviour
     
     void SetStart()
     {
-        gameManager.StartGame();
+        //gameManager.StartGame();
     }
 }
