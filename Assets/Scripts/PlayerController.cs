@@ -24,6 +24,12 @@ public class PlayerController : MonoBehaviour
         spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            var block = transform.GetChild(i);
+            block.tag = "Ground";
+        }
     }
 
     private void Update()
@@ -103,7 +109,6 @@ public class PlayerController : MonoBehaviour
             }
         }
         
-        Destroy(rb);
         Destroy(this);
     }
 }
