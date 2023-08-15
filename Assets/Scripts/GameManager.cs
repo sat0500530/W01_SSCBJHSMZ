@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI stageNameText;
     public TextMeshProUGUI stageGoalText;
     public TextMeshProUGUI limitText;
+    public Image nextBlockImage;
     public TextMeshProUGUI stageClearText;
     public TextMeshProUGUI stageOverText;
 
@@ -104,9 +105,11 @@ public class GameManager : MonoBehaviour
 
     public bool TrySpawnPlayer()
     {
+        Sprite nextSprite;
         if (isTimeLimit)
         {
-            spawnManager.SpawnPlayer();
+            nextSprite = spawnManager.SpawnPlayer(false);
+            UpdateNextImage(nextSprite);
             return true;
         }
 
@@ -114,7 +117,9 @@ public class GameManager : MonoBehaviour
         {
             blockLimit--;
             UpdateLimitText();
-            spawnManager.SpawnPlayer();
+
+            nextSprite = spawnManager.SpawnPlayer(blockLimit == 0);
+            UpdateNextImage(nextSprite);
             return true;
         }
         else
@@ -141,5 +146,8 @@ public class GameManager : MonoBehaviour
         }
     }
     
-
+    public void UpdateNextImage(Sprite sprite)
+    {
+        nextBlockImage.sprite = sprite;
+    }
 }

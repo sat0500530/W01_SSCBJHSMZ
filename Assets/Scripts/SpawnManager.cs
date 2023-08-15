@@ -4,20 +4,33 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public bool isTetris = false;
-    public GameObject[] playerPrefabs;
-    public GameObject[] tetrisPrefabs;
     public Transform spawnPoint;
+    public GameObject[] tetrisPrefabs;
+    public Sprite[] tetrisSprites;
+    public Sprite nullSprite;
 
-    public void SpawnPlayer()
+    int nextIndex = -1;
+
+    public Sprite SpawnPlayer(bool isLast)
     {
-        // 랜덤 도형 선택
-        var list = isTetris ? tetrisPrefabs : playerPrefabs;
-        int randomIndex = Random.Range(0, list.Length);
-        GameObject playerPrefab = list[randomIndex];
+        GameObject selectedPrefab;
+        selectedPrefab = tetrisPrefabs[nextIndex > -1 ? nextIndex : Random.Range(0, tetrisPrefabs.Length)];
 
-        // 랜덤 도형 스폰 위치에 소환, 카메라 할당
-        Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
+        Sprite nextSprite;
+        if (isLast)
+        {
+            nextSprite = nullSprite;
+        }
+        else
+        {
+            nextIndex = Random.Range(0, tetrisPrefabs.Length);
+            nextSprite = tetrisSprites[nextIndex];
+        }
+
+        Instantiate(selectedPrefab, spawnPoint.position, spawnPoint.rotation);
+        return nextSprite;
     }
+    
+    
 }
 
