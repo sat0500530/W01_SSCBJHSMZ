@@ -15,20 +15,7 @@ public class PlayerController : MonoBehaviour
 
     float previousVelocityY;
 
-    private bool isOnGround
-    {
-        get
-        {
-            return _isOnGround;
-        }
-        set
-        {
-            Debug.Log("isOnGround : " + value);
-            _isOnGround = value;
-        }
-    }
-
-    bool _isOnGround;
+    private bool isOnGround;
     
     private SpawnManager spawnManager;
     
@@ -61,7 +48,6 @@ public class PlayerController : MonoBehaviour
         Vector2 movement = new Vector2(moveX * moveSpeed, rb.velocity.y);
         rb.velocity = movement;
 
-        Debug.Log("y = " + rb.velocity.y);
         if (!isOnGround && Mathf.Abs(rb.velocity.y) < 0.0001f && previousVelocityY < 0)
         {
             isOnGround = true;
