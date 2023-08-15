@@ -11,9 +11,8 @@ public class GameManager : MonoBehaviour
     public float timeLimit;
     public int blockLimit;
 
-    public bool isGameActive;
-    public SpawnManager spawnManager;
     bool isGameActive;
+    SpawnManager spawnManager;
 
     public GameObject stageStartUI;
     public GameObject onStageUI;
@@ -31,6 +30,11 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         stageName = SceneManager.GetActiveScene().name;
+
+        if (spawnManager == null)
+        {
+            spawnManager = FindObjectOfType<SpawnManager>();
+        }
 
         stageNameText.text = stageName;
         stageGoalText.text = isTimeLimit ? $"Time Limit : {timeLimit} seconds" : $"Block Limit : {blockLimit}";
@@ -89,6 +93,7 @@ public class GameManager : MonoBehaviour
     }
     public void NextStage()
     {
+        // TODO : 스테이지 씬들 사이에서만 이동하기(타이틀, 목록 씬 등 제외)
         int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
         if (nextIndex == SceneManager.sceneCountInBuildSettings)
         {
