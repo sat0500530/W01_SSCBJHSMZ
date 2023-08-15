@@ -108,7 +108,8 @@ public class PlayerController : MonoBehaviour
                 block.gameObject.GetComponent<SpriteRenderer>().color = groundColor;
             }
         }
-        
+
+        rb.mass *= 1000000;
         Destroy(this);
     }
 }
