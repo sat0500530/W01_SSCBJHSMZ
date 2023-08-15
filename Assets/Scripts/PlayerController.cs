@@ -78,8 +78,6 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            // 땅에 닿아 있을 시 점프 가능
-            isOnGround = true;
 
         }
 
