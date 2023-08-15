@@ -80,16 +80,13 @@ public class PlayerController : MonoBehaviour
         {
             // 땅에 닿아 있을 시 점프 가능
             isOnGround = true;
+
         }
 
         else if (collision.gameObject.CompareTag("Lava"))
         {
-            // 용암에 닿을 시 게임 오버
-            Debug.Log("Game Over");
-            gameOver = true;
-            gameManager.StageOver();
             Destroy(gameObject);
-
+            gameManager.TrySpawnPlayer();
         }
 
         else if (collision.gameObject.CompareTag("Goal"))
