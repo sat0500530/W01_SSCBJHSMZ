@@ -153,6 +153,7 @@ MonoBehaviour:
   jumpForce: 5
   changePlatform: {fileID: 4501981808185065233, guid: d1aed27f73ec74b4eab937e69d03bf30, type: 3}
   cameraManager: {fileID: 0}
+  groundColor: {r: 0.18823531, g: 0.9058824, b: 0.17254902, a: 1}
 --- !u!251 &2049521298509713929
 PlatformEffector2D:
   m_ObjectHideFlags: 0

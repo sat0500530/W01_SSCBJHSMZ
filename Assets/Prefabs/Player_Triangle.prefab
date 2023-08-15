@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8681512126335374292}
   - component: {fileID: 7344502811907738286}
   - component: {fileID: 6308575072423933183}
+  - component: {fileID: 3422376335711917341}
   - component: {fileID: -4282731343806656762}
   - component: {fileID: -7358454257915303513}
-  - component: {fileID: 3422376335711917341}
   m_Layer: 0
   m_Name: Player_Triangle
   m_TagString: Untagged
@@ -109,43 +109,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-4282731343806656762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8798789934989363406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d7a9e4c0b8ca7342a7f08ca2cc110a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameOver: 0
-  clear: 0
-  moveSpeed: 5
-  jumpForce: 5
-  changePlatform: {fileID: 4773169123710697558, guid: 417481003ed755848ae82ad5f761ec01, type: 3}
-  cameraManager: {fileID: 0}
---- !u!251 &-7358454257915303513
-PlatformEffector2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8798789934989363406}
-  m_Enabled: 1
-  m_UseColliderMask: 1
-  m_ColliderMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RotationalOffset: 0
-  m_UseOneWay: 0
-  m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
-  m_UseSideFriction: 0
-  m_UseSideBounce: 0
-  m_SideArc: 1
 --- !u!60 &3422376335711917341
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -174,3 +137,41 @@ PolygonCollider2D:
     - - {x: 0, y: 0.5773587}
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
+--- !u!114 &-4282731343806656762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8798789934989363406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d7a9e4c0b8ca7342a7f08ca2cc110a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOver: 0
+  clear: 0
+  moveSpeed: 5
+  jumpForce: 5
+  changePlatform: {fileID: 4773169123710697558, guid: 417481003ed755848ae82ad5f761ec01, type: 3}
+  cameraManager: {fileID: 0}
+  groundColor: {r: 0.30980393, g: 0.24705884, b: 0.92549026, a: 1}
+--- !u!251 &-7358454257915303513
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8798789934989363406}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 0
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1

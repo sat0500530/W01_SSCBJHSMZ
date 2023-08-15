@@ -8,10 +8,11 @@ public class PlayerController : MonoBehaviour
     public bool clear;
     public float moveSpeed = 5f;
     public float jumpForce = 5f;
-    public GameObject changePlatform;
     public CameraManager cameraManager;
+    public Color groundColor;
     private GameManager gameManager;
     private Rigidbody2D rb;
+    private SpriteRenderer sr;
     private bool isOnGround = true;
     private SpawnManager spawnManager;
     
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -43,8 +45,19 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.X) && !gameOver && !clear)
         {
             ChangeToPlatform();
+            spawnManager.SpawnPlayer();
         }
 
+        if (Input.GetKeyDown(KeyCode.Z) && !gameOver && !clear)
+        {
+            transform.Rotate(Vector3.forward * 90);
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.C) && !gameOver && !clear)
+        {
+            transform.Rotate(Vector3.forward * -90);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -75,9 +88,22 @@ public class PlayerController : MonoBehaviour
 
     private void ChangeToPlatform()
     {
-        // player 자리에 platform prefab 소환 후, player 오브젝트 제거, 그리고 player 소환
-        Instantiate(changePlatform, transform.position, changePlatform.transform.rotation);
-        Destroy(gameObject);
-        spawnManager.SpawnPlayer();
+        if (transform.childCount == 0)
+        {
+            gameObject.tag = "Ground";
+            sr.color = groundColor;
+        }
+        else
+        {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                var block = transform.GetChild(i);
+                block.tag = "Ground";
+                block.gameObject.GetComponent<SpriteRenderer>().color = groundColor;
+            }
+        }
+        
+        Destroy(rb);
+        Destroy(this);
     }
 }

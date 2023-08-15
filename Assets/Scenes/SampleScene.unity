@@ -2423,10 +2423,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e76de6638bd9a409e7fd788ff5f295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTetris: 0
   playerPrefabs:
   - {fileID: 9201474792296717010, guid: 28e62383bd6288d4e85bbc836056bdc3, type: 3}
   - {fileID: 6559344318297879922, guid: 71551652cd8227341af195812429e0f7, type: 3}
   - {fileID: 8798789934989363406, guid: d5d6c67c48baea240995a7513e5154a5, type: 3}
+  tetrisPrefabs:
+  - {fileID: 7883277312580627851, guid: 629e62f34a5c8784288d3c66f2a5bad8, type: 3}
+  - {fileID: 2943773031484619222, guid: 12419339448417945bbd57fc99069a9e, type: 3}
+  - {fileID: 8565829546101550533, guid: 1e2309b4ca1ecc747922878d7c611094, type: 3}
+  - {fileID: 3158581487144846323, guid: 2bf9513ec69b95f40905ce02f041ae4b, type: 3}
+  - {fileID: 3614135145469929923, guid: fadbc9dc27510f7478e445675c180234, type: 3}
+  - {fileID: 5858823159327227313, guid: 72dd5441c80800c40ab55e7fc7e1b308, type: 3}
+  - {fileID: 9047540689851020497, guid: 4bec02b39d30a804cbd7ab9e534f4c6b, type: 3}
   spawnPoint: {fileID: 1324190218}
 --- !u!4 &1667417106
 Transform:
