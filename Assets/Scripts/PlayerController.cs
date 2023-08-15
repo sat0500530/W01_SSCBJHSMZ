@@ -94,18 +94,11 @@ public class PlayerController : MonoBehaviour
 
     private void ChangeToPlatform()
     {
-        if (transform.childCount == 0)
-        {
-            gameObject.tag = "Ground";
-            sr.color = groundColor;
-        }
-        else
+        gameObject.tag = "Ground";
         {
             for (int i = 0; i < transform.childCount; i++)
             {
-                var block = transform.GetChild(i);
-                block.tag = "Ground";
-                block.gameObject.GetComponent<SpriteRenderer>().color = groundColor;
+                transform.GetChild(i).GetComponent<SpriteRenderer>().color = groundColor;
             }
         }
 
