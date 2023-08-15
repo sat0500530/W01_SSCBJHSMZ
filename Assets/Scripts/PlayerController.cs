@@ -75,19 +75,9 @@ public class PlayerController : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
+    {  
 
-        }
-
-        else if (collision.gameObject.CompareTag("Lava"))
-        {
-            Destroy(gameObject);
-            gameManager.TrySpawnPlayer();
-        }
-
-        else if (collision.gameObject.CompareTag("Goal"))
+        if (collision.gameObject.CompareTag("Goal"))
         {
             // °ñÀÎ µµÂø
             clear = true;
@@ -107,5 +97,15 @@ public class PlayerController : MonoBehaviour
 
         rb.mass *= 1000000;
         Destroy(this);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {       
+        if (collision.gameObject.CompareTag("Lava"))
+        {
+            Destroy(gameObject);
+            gameManager.TrySpawnPlayer();
+        }
+
     }
 }
