@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     public bool isGameActive;
     public SpawnManager spawnManager;
+    bool isGameActive;
 
     public GameObject stageStartUI;
     public GameObject onStageUI;
@@ -33,13 +34,15 @@ public class GameManager : MonoBehaviour
 
         stageNameText.text = stageName;
         stageGoalText.text = isTimeLimit ? $"Time Limit : {timeLimit} seconds" : $"Block Limit : {blockLimit}";
+
+        isGameActive = false;
     }
 
     void Update()
     {
         if (!isTimeLimit) return;
 
-        if (isTimeLimit)
+        if (isGameActive && isTimeLimit)
         {
             if (timeLimit > 0)
             {
