@@ -12,9 +12,19 @@ public class CameraManager : MonoBehaviour
     private void LateUpdate()
     {
         Vector3 desiredPosition = transform.position;
-        desiredPosition.y = targetPosition.y + yOffset;
+
+        if (targetPosition.y < 0)
+        {
+            desiredPosition.y = 0;
+        }
+
+        else
+        {
+            desiredPosition.y = targetPosition.y + yOffset;
+        }
 
         transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
+
     }
 
     public void SetTarget(Vector3 newPosition)
