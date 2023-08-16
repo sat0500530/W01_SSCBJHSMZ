@@ -348,7 +348,6 @@ GameObject:
   - component: {fileID: 1839218779996179474}
   - component: {fileID: 8540845777308370138}
   - component: {fileID: 3508174653501108604}
-  - component: {fileID: 2138640476793061869}
   m_Layer: 0
   m_Name: Tetrimino Z
   m_TagString: Ground
@@ -447,22 +446,3 @@ PolygonCollider2D:
       - {x: -0.025, y: -0.475}
       - {x: 0.975, y: -0.475}
       - {x: 0.975, y: 1.475}
---- !u!251 &2138640476793061869
-PlatformEffector2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9047540689851020497}
-  m_Enabled: 1
-  m_UseColliderMask: 1
-  m_ColliderMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RotationalOffset: 0
-  m_UseOneWay: 0
-  m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
-  m_UseSideFriction: 0
-  m_UseSideBounce: 0
-  m_SideArc: 1
