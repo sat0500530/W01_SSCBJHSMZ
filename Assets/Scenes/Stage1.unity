@@ -935,7 +935,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3018723876466507438, guid: d1aed27f73ec74b4eab937e69d03bf30, type: 3}
       propertyPath: m_EdgeRadius
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4501981808185065233, guid: d1aed27f73ec74b4eab937e69d03bf30, type: 3}
       propertyPath: m_Name
@@ -1306,7 +1306,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3018723876466507438, guid: d1aed27f73ec74b4eab937e69d03bf30, type: 3}
       propertyPath: m_EdgeRadius
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4501981808185065233, guid: d1aed27f73ec74b4eab937e69d03bf30, type: 3}
       propertyPath: m_Name
