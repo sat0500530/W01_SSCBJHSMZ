@@ -348,6 +348,7 @@ GameObject:
   - component: {fileID: 6737225420199573076}
   - component: {fileID: 8788356823576376764}
   - component: {fileID: 8751131671297693844}
+  - component: {fileID: -1471677796691652685}
   m_Layer: 0
   m_Name: Tetrimino L
   m_TagString: Ground
@@ -444,3 +445,15 @@ PolygonCollider2D:
       - {x: -0.475, y: -1.475}
       - {x: 0.475, y: -1.475}
       - {x: 0.475, y: 1.475}
+--- !u!114 &-1471677796691652685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8565829546101550533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a22a62ee0f09b4f41b6966fc345fdb99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

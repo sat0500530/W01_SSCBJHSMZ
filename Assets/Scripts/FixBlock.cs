@@ -1,29 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class FixBlock : MonoBehaviour
 {
     bool fixChaker = true;
+    FixBlock originPlatform;
+    List<FixBlock> childPlatforms = new List<FixBlock>();
+    bool isOrigin = true;
+
     public void Start()
     {
         
     }
+    public void SetOrigin(FixBlock origin)
+    {
+        isOrigin = false;
+        originPlatform = origin;
+    }
+
+    public void EndFix()
+    {
+        transform?.SetParent(null);
+        Destroy(this);
+    }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.transform.CompareTag("Ground"))
+        if (collision.gameObject.TryGetComponent<FixableObject>(out _))
         {
-            collision.transform.SetParent(transform);
+
+            var origin = isOrigin ? this : originPlatform;
+            collision.transform.SetParent(origin.gameObject.transform);
 
             bool hasComponent = collision.transform.TryGetComponent<FixBlock>(out _);
             bool hasPComponent = collision.transform.TryGetComponent<PlayerController>(out _);
-            Debug.Log("픽스블럭 : "+hasComponent); 
-            Debug.Log("플레이어컨트롤러 : " + hasPComponent);
             if (!hasComponent&&!hasPComponent)
             {
-                Debug.Log("들어와제발");
-                collision.gameObject.AddComponent<FixBlock>();
+                var newFixBlock = collision.gameObject.AddComponent<FixBlock>();
+                newFixBlock.SetOrigin(origin);
+                childPlatforms.Add(newFixBlock);
             }
             
         }
@@ -33,10 +50,15 @@ public class FixBlock : MonoBehaviour
     {
         if (collision.transform.CompareTag("Ground"))
         {
-           
-                collision.transform.SetParent(null);
-           
+            collision.transform.SetParent(null);
+        }
+    }
 
+    private void OnDestroy()
+    {
+        foreach (var f in childPlatforms)
+        {
+            f.EndFix();
         }
     }
 
