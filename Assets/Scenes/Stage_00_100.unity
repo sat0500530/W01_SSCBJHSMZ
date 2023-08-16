@@ -536,7 +536,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoothSpeed: 0.125
-  yOffset: 0
+  yBoundaryMin: 0
+  useMax: 1
+  yBoundaryMax: 0
 --- !u!4 &736919512 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7471827968757203429, guid: f03333141bb5f904297fc5fa305b5998, type: 3}

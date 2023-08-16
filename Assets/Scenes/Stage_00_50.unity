@@ -507,7 +507,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoothSpeed: 0.125
-  yOffset: 0
+  yBoundaryMin: 0
+  useMax: 0
+  yBoundaryMax: 0
 --- !u!1001 &650944079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -816,7 +818,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2356397149890705351, guid: d17cf74e0f856e544af83378e370c8a4, type: 3}
       propertyPath: timeLimit
-      value: 300
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2356397149890705351, guid: d17cf74e0f856e544af83378e370c8a4, type: 3}
       propertyPath: isTimeLimit

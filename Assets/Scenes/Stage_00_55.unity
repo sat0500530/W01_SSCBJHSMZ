@@ -1061,7 +1061,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2356397149890705351, guid: d17cf74e0f856e544af83378e370c8a4, type: 3}
       propertyPath: timeLimit
-      value: 30
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 2356397149890705351, guid: d17cf74e0f856e544af83378e370c8a4, type: 3}
       propertyPath: isTimeLimit
@@ -1098,7 +1098,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3699500841231759201, guid: f254473225ffefc4e9d9c4a2038d4256, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5
+      value: 2.75
       objectReference: {fileID: 0}
     - target: {fileID: 3699500841231759201, guid: f254473225ffefc4e9d9c4a2038d4256, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2086,7 +2086,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2259353733618631706, guid: f03333141bb5f904297fc5fa305b5998, type: 3}
       propertyPath: path.length
-      value: 4.5000825
+      value: 5.000014
       objectReference: {fileID: 0}
     - target: {fileID: 2259353733618631706, guid: f03333141bb5f904297fc5fa305b5998, type: 3}
       propertyPath: wpsDropdown
@@ -2102,11 +2102,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2259353733618631706, guid: f03333141bb5f904297fc5fa305b5998, type: 3}
       propertyPath: wps.Array.data[0].x
-      value: 0.024522781
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2259353733618631706, guid: f03333141bb5f904297fc5fa305b5998, type: 3}
       propertyPath: wps.Array.data[0].y
-      value: -3.25
+      value: -3.75
       objectReference: {fileID: 0}
     - target: {fileID: 2259353733618631706, guid: f03333141bb5f904297fc5fa305b5998, type: 3}
       propertyPath: path.wps.Array.data[0].x
@@ -2118,15 +2118,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2259353733618631706, guid: f03333141bb5f904297fc5fa305b5998, type: 3}
       propertyPath: path.wps.Array.data[1].x
-      value: 0.024522781
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2259353733618631706, guid: f03333141bb5f904297fc5fa305b5998, type: 3}
       propertyPath: path.wps.Array.data[1].y
-      value: -3.25
+      value: -3.75
       objectReference: {fileID: 0}
     - target: {fileID: 2259353733618631706, guid: f03333141bb5f904297fc5fa305b5998, type: 3}
       propertyPath: path.wpLengths.Array.data[1]
-      value: 4.5000825
+      value: 5.000014
       objectReference: {fileID: 0}
     - target: {fileID: 7471827968757203429, guid: f03333141bb5f904297fc5fa305b5998, type: 3}
       propertyPath: m_RootOrder
