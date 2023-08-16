@@ -112,5 +112,11 @@ public class PlayerController : MonoBehaviour
             gameManager.TrySpawnPlayer();
         }
 
+        if (collision.gameObject.CompareTag("Water"))
+        {
+            ChangeToPlatform();
+            gameManager.TrySpawnPlayer();
+        }
+
     }
 }

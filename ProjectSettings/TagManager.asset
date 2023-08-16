@@ -9,6 +9,7 @@ TagManager:
   - Goal
   - Wall
   - Switch
+  - Water
   layers:
   - Default
   - TransparentFX
