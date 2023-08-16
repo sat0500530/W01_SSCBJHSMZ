@@ -180,7 +180,6 @@ GameObject:
   - component: {fileID: 2200385436729406200}
   - component: {fileID: -1120155440956524859}
   - component: {fileID: 7349855046594957769}
-  - component: {fileID: 6178634572047953680}
   m_Layer: 0
   m_Name: Tetrimino O
   m_TagString: Ground
@@ -275,25 +274,6 @@ PolygonCollider2D:
       - {x: -0.975, y: 0.975}
       - {x: -0.975, y: -0.975}
       - {x: 0.975, y: -0.975}
---- !u!251 &6178634572047953680
-PlatformEffector2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3158581487144846323}
-  m_Enabled: 1
-  m_UseColliderMask: 1
-  m_ColliderMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RotationalOffset: 0
-  m_UseOneWay: 0
-  m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
-  m_UseSideFriction: 0
-  m_UseSideBounce: 0
-  m_SideArc: 1
 --- !u!1 &4918786214121094662
 GameObject:
   m_ObjectHideFlags: 0
