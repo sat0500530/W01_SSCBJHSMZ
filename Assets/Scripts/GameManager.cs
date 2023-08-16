@@ -45,6 +45,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if (isGameActive && Input.GetKeyDown(KeyCode.R))
+        {
+            RestartStage();
+        }
+
         if (!isTimeLimit) return;
 
         if (isGameActive && isTimeLimit)
