@@ -915,7 +915,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smoothSpeed: 0.125
   yBoundaryMin: 0
-  useMax: 0
+  useMax: 1
   yBoundaryMax: 0
 --- !u!4 &548089013 stripped
 Transform:
