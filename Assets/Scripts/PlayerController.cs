@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
             Vector2 movement = new Vector2(moveX * moveSpeed, rb.velocity.y);
             rb.velocity = movement;
 
-            if (Input.GetKey(KeyCode.Space) && isOnGround)
+            if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
             {
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
                 isOnGround = false;
