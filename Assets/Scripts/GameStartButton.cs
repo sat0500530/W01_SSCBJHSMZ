@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameStartButton : MonoBehaviour
 {
+    public bool goToTitle = false;
     private void Awake()
     {
         Screen.SetResolution(1920, 1080, true);
@@ -17,6 +18,6 @@ public class GameStartButton : MonoBehaviour
 
     void GameStart()
     {
-        SceneManager.LoadScene("StageSelect");
+        SceneManager.LoadScene(goToTitle ? "Title" : "StageSelect");
     }
 }
