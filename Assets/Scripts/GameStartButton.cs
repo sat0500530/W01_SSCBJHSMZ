@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class GameStartButton : MonoBehaviour
 {
+    private void Awake()
+    {
+        Screen.SetResolution(1920, 1080, true);
+    }
     void Start()
     {
         GetComponent<Button>().onClick.AddListener(GameStart);
