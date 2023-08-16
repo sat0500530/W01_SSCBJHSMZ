@@ -410,8 +410,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOver: 0
   clear: 0
-  moveSpeed: 5
-  jumpForce: 5
+  moveSpeed: 5.55
+  jumpForce: 4.5
   cameraManager: {fileID: 0}
   groundColor: {r: 0.5, g: 0.3745098, b: 0.2509804, a: 1}
 --- !u!60 &8751131671297693844

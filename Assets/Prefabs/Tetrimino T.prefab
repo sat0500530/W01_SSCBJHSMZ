@@ -326,8 +326,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOver: 0
   clear: 0
-  moveSpeed: 5
-  jumpForce: 5
+  moveSpeed: 5.55
+  jumpForce: 4.5
   cameraManager: {fileID: 0}
   groundColor: {r: 0.5, g: 0.25, b: 0.5, a: 1}
 --- !u!60 &4995689722530729114
@@ -355,14 +355,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.475, y: 1.475}
+    - - {x: -0.475, y: 1.49}
       - {x: -0.475, y: 0.475}
       - {x: -1.475, y: 0.475}
       - {x: -1.475, y: -0.475}
       - {x: -0.475, y: -0.475}
       - {x: -0.475, y: -1.475}
       - {x: 0.475, y: -1.475}
-      - {x: 0.475, y: 1.475}
+      - {x: 0.475, y: 1.49}
 --- !u!251 &1480816365213839864
 PlatformEffector2D:
   m_ObjectHideFlags: 0
