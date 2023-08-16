@@ -21,6 +21,8 @@ public class GeneratedPlatform : MonoBehaviour
         rb.drag = 0.1f;
 
         var pm = new PhysicsMaterial2D();
+
+        rb.mass *= 1000;
         pm.friction = 100000f;
         pm.bounciness = 0;
         rb.sharedMaterial = pm;
@@ -30,7 +32,7 @@ public class GeneratedPlatform : MonoBehaviour
     {
         if (collision.transform.CompareTag("Ground"))
         { 
-            rb.mass *= 1000000;
+            rb.mass *= 1000;
             rb.velocity = Vector3.zero;
         }
     }
