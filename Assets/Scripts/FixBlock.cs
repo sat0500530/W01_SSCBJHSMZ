@@ -22,7 +22,8 @@ public class FixBlock : MonoBehaviour
 
     public void EndFix()
     {
-        transform?.SetParent(null);
+        gameObject.transform.SetParent(null);
+        OnDestroyGameObject();
         Destroy(this);
     }
 
@@ -54,11 +55,14 @@ public class FixBlock : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
+    public void OnDestroyGameObject()
     {
         foreach (var f in childPlatforms)
         {
-            f.EndFix();
+            if (f != null)
+            {
+                f.EndFix();
+            }
         }
     }
 
