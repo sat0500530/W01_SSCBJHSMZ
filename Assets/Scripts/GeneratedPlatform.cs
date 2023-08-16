@@ -34,4 +34,12 @@ public class GeneratedPlatform : MonoBehaviour
             rb.velocity = Vector3.zero;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("Lava"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }
