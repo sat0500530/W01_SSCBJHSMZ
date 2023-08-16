@@ -243,7 +243,7 @@ MonoBehaviour:
   gameOver: 0
   clear: 0
   moveSpeed: 5.55
-  jumpForce: 4.5
+  jumpForce: 4.55
   cameraManager: {fileID: 0}
   groundColor: {r: 0.25, g: 0.5, b: 0.25, a: 1}
 --- !u!60 &5492542962076804068
