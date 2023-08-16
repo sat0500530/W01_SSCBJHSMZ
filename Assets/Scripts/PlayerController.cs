@@ -59,19 +59,19 @@ public class PlayerController : MonoBehaviour
             isOnGround = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.X) && !gameOver && !clear)
+        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.X))&& !gameOver && !clear)
         {
             ChangeToPlatform();
             gameManager.TrySpawnPlayer();
         }
 
-        if (Input.GetKeyDown(KeyCode.Z) && !gameOver && !clear)
+        if (Input.GetKeyDown(KeyCode.UpArrow) && !gameOver && !clear)
         {
             transform.Rotate(Vector3.forward * 90);
         }
 
 
-        if (Input.GetKeyDown(KeyCode.C) && !gameOver && !clear)
+        if (Input.GetKeyDown(KeyCode.DownArrow) && !gameOver && !clear)
         {
             transform.Rotate(Vector3.forward * -90);
         }
