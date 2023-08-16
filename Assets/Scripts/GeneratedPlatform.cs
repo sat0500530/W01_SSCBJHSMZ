@@ -41,6 +41,10 @@ public class GeneratedPlatform : MonoBehaviour
     {
         if (collision.transform.CompareTag("Lava"))
         {
+            if (TryGetComponent<FixBlock>(out FixBlock f))
+            {
+                f.OnDestroyGameObject();
+            }
             Destroy(gameObject);
         }
     }
