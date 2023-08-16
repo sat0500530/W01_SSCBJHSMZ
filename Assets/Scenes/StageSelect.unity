@@ -604,6 +604,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LoadStage
       objectReference: {fileID: 0}
+    - target: {fileID: 5112737324643299020, guid: bcbc4fd9879b71444a861420dec7fc03, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 7497031147720184598, guid: bcbc4fd9879b71444a861420dec7fc03, type: 3}
       propertyPath: m_text
       value: 16
@@ -1570,6 +1574,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StageButton (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 3992519132133295716, guid: bcbc4fd9879b71444a861420dec7fc03, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5112737324643299020, guid: bcbc4fd9879b71444a861420dec7fc03, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1831,6 +1839,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StageButton (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 3992519132133295716, guid: bcbc4fd9879b71444a861420dec7fc03, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5112737324643299020, guid: bcbc4fd9879b71444a861420dec7fc03, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2066,6 +2078,10 @@ PrefabInstance:
     - target: {fileID: 3992519132133295716, guid: bcbc4fd9879b71444a861420dec7fc03, type: 3}
       propertyPath: m_Name
       value: StageButton (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992519132133295716, guid: bcbc4fd9879b71444a861420dec7fc03, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5112737324643299020, guid: bcbc4fd9879b71444a861420dec7fc03, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2518,6 +2534,10 @@ PrefabInstance:
     - target: {fileID: 3992519132133295716, guid: bcbc4fd9879b71444a861420dec7fc03, type: 3}
       propertyPath: m_Name
       value: StageButton (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992519132133295716, guid: bcbc4fd9879b71444a861420dec7fc03, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5112737324643299020, guid: bcbc4fd9879b71444a861420dec7fc03, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3233,6 +3253,10 @@ PrefabInstance:
     - target: {fileID: 3992519132133295716, guid: bcbc4fd9879b71444a861420dec7fc03, type: 3}
       propertyPath: m_Name
       value: StageButton (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992519132133295716, guid: bcbc4fd9879b71444a861420dec7fc03, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5112737324643299020, guid: bcbc4fd9879b71444a861420dec7fc03, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

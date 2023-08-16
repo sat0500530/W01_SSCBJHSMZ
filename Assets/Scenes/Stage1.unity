@@ -553,7 +553,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoothSpeed: 0.125
-  yOffset: 0
+  yBoundaryMin: 0
+  useMax: 0
+  yBoundaryMax: 0
 --- !u!1 &934549400
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,7 +867,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2356397150333001047, guid: d17cf74e0f856e544af83378e370c8a4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356397150400671483, guid: d17cf74e0f856e544af83378e370c8a4, type: 3}
       propertyPath: m_IsActive
