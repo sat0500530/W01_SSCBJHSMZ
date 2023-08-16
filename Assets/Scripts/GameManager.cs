@@ -103,6 +103,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(nextIndex);
     }
 
+    public void GoToStageSelect()
+    {
+        SceneManager.LoadScene("StageSelect");
+    }
+
     public bool TrySpawnPlayer()
     {
         Sprite nextSprite;
