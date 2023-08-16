@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public int blockLimit;
 
     bool isGameActive;
+    public bool IsGameActive { get { return isGameActive; } }
     SpawnManager spawnManager;
 
     public GameObject stageStartUI;

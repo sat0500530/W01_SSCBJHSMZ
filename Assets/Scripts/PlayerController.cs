@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 { 
     public bool gameOver;
-    public bool clear;
     public float moveSpeed = 5f;
     public float jumpForce = 5f;
     public CameraManager cameraManager;
@@ -16,15 +15,11 @@ public class PlayerController : MonoBehaviour
     float previousVelocityY;
 
     private bool isOnGround;
-    
-    private SpawnManager spawnManager;
-    
 
     private void Start()
     {
         cameraManager = GameObject.Find("Main Camera").GetComponent<CameraManager>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
         rb = GetComponent<Rigidbody2D>();
 
         for (int i = 0; i < transform.childCount; i++)
@@ -40,40 +35,41 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        
         cameraManager.SetTarget(transform.position);
-
-        float moveX = Input.GetAxis("Horizontal");
-
-        Vector2 movement = new Vector2(moveX * moveSpeed, rb.velocity.y);
-        rb.velocity = movement;
 
         if (!isOnGround && Mathf.Abs(rb.velocity.y) < 0.0001f && previousVelocityY < 0)
         {
             isOnGround = true;
         }
 
-        if (Input.GetKey(KeyCode.Space) && isOnGround && !gameOver && !clear)
+        if (gameManager.IsGameActive)
         {
-            rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-            isOnGround = false;
-        }
+            float moveX = Input.GetAxis("Horizontal");
+            Vector2 movement = new Vector2(moveX * moveSpeed, rb.velocity.y);
+            rb.velocity = movement;
 
-        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.X))&& !gameOver && !clear)
-        {
-            ChangeToPlatform();
-            gameManager.TrySpawnPlayer();
-        }
+            if (Input.GetKey(KeyCode.Space) && isOnGround)
+            {
+                rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+                isOnGround = false;
+            }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) && !gameOver && !clear)
-        {
-            transform.Rotate(Vector3.forward * 90);
-        }
+            if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.X))
+            {
+                ChangeToPlatform();
+                gameManager.TrySpawnPlayer();
+            }
+
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                transform.Rotate(Vector3.forward * 90);
+            }
 
 
-        if (Input.GetKeyDown(KeyCode.DownArrow) && !gameOver && !clear)
-        {
-            transform.Rotate(Vector3.forward * -90);
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                transform.Rotate(Vector3.forward * -90);
+            }
         }
 
         previousVelocityY = rb.velocity.y;
@@ -81,11 +77,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {  
-
         if (collision.gameObject.CompareTag("Goal"))
         {
-            // °ñÀÎ µµÂø
-            clear = true;
             gameManager.StageClear();
         }
     }
