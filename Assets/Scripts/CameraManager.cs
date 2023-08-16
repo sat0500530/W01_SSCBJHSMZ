@@ -6,21 +6,26 @@ public class CameraManager : MonoBehaviour
 {
     private Vector3 targetPosition;
     public float smoothSpeed = 0.125f;
-    public float yOffset = 0f;
+    public float yBoundaryMin = 0;
+    public bool useMax = false;
+    public float yBoundaryMax = 0;
 
     private Vector3 velocity = Vector3.zero;
     private void LateUpdate()
     {
         Vector3 desiredPosition = transform.position;
 
-        if (targetPosition.y < 0)
+        if (targetPosition.y < yBoundaryMin)
         {
-            desiredPosition.y = 0;
+            desiredPosition.y = yBoundaryMin;
         }
-
+        else if (useMax && targetPosition.y > yBoundaryMax)
+        {
+            desiredPosition.y = yBoundaryMax;
+        }
         else
         {
-            desiredPosition.y = targetPosition.y + yOffset;
+            desiredPosition.y = targetPosition.y;
         }
 
         transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
