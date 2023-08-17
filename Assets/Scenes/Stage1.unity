@@ -848,8 +848,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Move left and right : \u2190,\u2192\nJump : Space bar\nRotation : \u2191,\u2193\nTo
-    be platform : Left Shift\nRestart : R"
+  m_text: "Move left and right : \u2190,\u2192\nJump : Space bar\nRotation : \u2191,\u2193\nChange
+    to platform : Left Shift\nRestart : R"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1114,6 +1114,10 @@ PrefabInstance:
     - target: {fileID: 4369294108976991948, guid: d17cf74e0f856e544af83378e370c8a4, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7256399151042697932, guid: d17cf74e0f856e544af83378e370c8a4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d17cf74e0f856e544af83378e370c8a4, type: 3}
